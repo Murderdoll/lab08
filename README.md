@@ -20,10 +20,10 @@ $ export GITHUB_USERNAME=Murderdoll # Устанавливаем значени�
 ```
 
 ```ShellSession
-$ git clone https://github.com/${GITHUB_USERNAME}/lab03.git lab04
-$ cd lab04
+$ git clone https://github.com/${GITHUB_USERNAME}/lab03.git lab04 # Клонируем репозиторий lab03 в каталог lab04
+$ cd lab04 # Переходим в каталог lab04
 $ git remote remove origin
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab04.git
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab04.git # Добавляем новый удаленный репозиторий под именем origin
 ```
 
 ```ShellSession
