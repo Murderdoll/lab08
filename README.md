@@ -22,8 +22,8 @@ $ export GITHUB_USERNAME=Murderdoll # Устанавливаем значени�
 ```ShellSession
 $ git clone https://github.com/${GITHUB_USERNAME}/lab03.git lab04 # Клонируем репозиторий lab03 в каталог lab04
 $ cd lab04 # Переходим в каталог lab04
-$ git remote remove origin удаляем старый origin
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab04.git # Добавляем новый удаленный репозиторий под тем же именем origin
+$ git remote remove origin # отключаемся от ветки из lab03
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab04.git # Переходим в ветку репозитория для четвертой лабораторной
 ```
 
 ```ShellSession
@@ -34,7 +34,7 @@ $ file print.a # Узнаем тип файла print.a
 $ g++ -I./include -std=c++11 -c examples/example1.cpp # С помощью флага -I указываем на заголовочные файлы, подключаем стандарт c++11, указываем путь к выполняемому файлу
 $ ls example1.o # Просматриваем содержимое файла example1.o
 $ g++ example1.o print.a -o example1 # Компилируем example1.o и print.a. Задаем имя исполняемого файла (example1.o)
-$ ./example1 && echo # Переключаемся на example1 и делаем вывод строки
+$ ./example1 && echo # Запускаем example1 и делаем вывод строки
 ```
 
 ```ShellSession
@@ -44,25 +44,25 @@ $ g++ example2.o print.a -o example2 # Компилируем example2.o и prin
 $ ./example2 # Переключаемся на example2
 $ cat log.txt && echo # Выводим на экран содержимое файла log.txt
 ```
-#Удаляем файлы: example1.o example2.o print.o print.a example1 example2 log.txt
+# Удаляем файлы: example1.o example2.o print.o print.a example1 example2 log.txt
 ```ShellSession
 $ rm -rf example1.o example2.o print.o 
 $ rm -rf print.a 
 $ rm -rf example1 example2
 $ rm -rf log.txt
 ```
-# Создаем CMakeLists.txt и делаем в нём необходимые настройки
+# НастраиваемCMakeLists.txt
 ```ShellSession
 $ cat > CMakeLists.txt <<EOF
 cmake_minimum_required(VERSION 3.0)
 project(print)
 EOF
 ```
-# Установливаем переменые со списком исходных данный
+# Установливаем значения ряда переменных
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 11) # CMAKE_CXX_STANDARD со значением 11
+set(CMAKE_CXX_STANDARD_REQUIRED ON) # CMAKE_CXX_STANDARD_REQUIRED со значением ON
 EOF
 ```
 # Создаем статическую библиотеку с именем print, исполняемый файл print.cpp
@@ -71,7 +71,7 @@ $ cat >> CMakeLists.txt <<EOF
 add_library(print STATIC \${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp)
 EOF
 ```
-# Подключение библиотек для поиска заголовков
+# Подключение библиотек для заголовочных файлов
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 include_directories(\${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -114,20 +114,20 @@ $ _build/example2 # Запускаем сборку example2
 $ cat log.txt && echo # Выводим log.txt и 
 hello
 ```
-
+# Скачиваем CMakeLists.txt из репозитория
 ```ShellSession
 $ git clone https://github.com/tp-labs/lab04 tmp # Клонируем репозиторий в директорию tmp
 $ mv -f tmp/CMakeLists.txt . # Помещаем в tmp CMakeLists.txt
 $ rm -rf tmp # Удаляем tmp
 ```
-
+# Настройка проекта
 ```ShellSession
 $ cat CMakeLists.txt # Выводим содержимое файла на экран
 $ cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install # -H. устанавливаем каталог в который сгенерируется файл, -B_build указывает директорию для собираемых файлов, -D - аналог команде set 
 $ cmake --build _build --target install # Указываем необходимые для обработки цели, запускаем сборку проекта.
 $ tree _install # Визуализируем 
 ```
-
+# Отправление на удаленный репозиторий
 ```ShellSession
 $ git add CMakeLists.txt # Добавляем CMakeLists.txt под версионный контроль
 $ git commit -m"added CMakeLists.txt" # делаем коммит
