@@ -44,34 +44,34 @@ $ g++ example2.o print.a -o example2 # Компилируем example2.o и prin
 $ ./example2 # Переключаемся на example2
 $ cat log.txt && echo # Выводим на экран содержимое файла log.txt
 ```
-# Удаляем файлы: example1.o example2.o print.o print.a example1 example2 log.txt
+#Удаляем файлы: example1.o example2.o print.o print.a example1 example2 log.txt
 ```ShellSession
 $ rm -rf example1.o example2.o print.o 
 $ rm -rf print.a 
 $ rm -rf example1 example2
 $ rm -rf log.txt
 ```
-# НастраиваемCMakeLists.txt
+#НастраиваемCMakeLists.txt
 ```ShellSession
 $ cat > CMakeLists.txt <<EOF
 cmake_minimum_required(VERSION 3.0)
 project(print)
 EOF
 ```
-# Установливаем значения ряда переменных
+#Установливаем значения ряда переменных
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 set(CMAKE_CXX_STANDARD 11) # CMAKE_CXX_STANDARD со значением 11
 set(CMAKE_CXX_STANDARD_REQUIRED ON) # CMAKE_CXX_STANDARD_REQUIRED со значением ON
 EOF
 ```
-# Создаем статическую библиотеку с именем print, исполняемый файл print.cpp
+#Создаем статическую библиотеку с именем print, исполняемый файл print.cpp
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 add_library(print STATIC \${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp)
 EOF
 ```
-# Подключение библиотек для заголовочных файлов
+#Подключение библиотек для заголовочных файлов
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 include_directories(\${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -82,7 +82,7 @@ EOF
 $ cmake -H. -B_build
 $ cmake --build _build # Компиляция и сборка проекта
 ```
-# Добавление example1.cpp и example2.cpp как исполняемых файлов
+#Добавление example1.cpp и example2.cpp как исполняемых файлов
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 
@@ -90,7 +90,7 @@ add_executable(example1 \${CMAKE_CURRENT_SOURCE_DIR}/examples/example1.cpp)
 add_executable(example2 \${CMAKE_CURRENT_SOURCE_DIR}/examples/example2.cpp)
 EOF
 ```
-## Линковка программы с библиотекой
+#Линковка программы с библиотекой
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 
@@ -114,20 +114,20 @@ $ _build/example2 # Запускаем сборку example2
 $ cat log.txt && echo # Выводим log.txt и 
 hello
 ```
-# Скачиваем CMakeLists.txt из репозитория
+#Скачиваем CMakeLists.txt из репозитория
 ```ShellSession
 $ git clone https://github.com/tp-labs/lab04 tmp # Клонируем репозиторий в директорию tmp
 $ mv -f tmp/CMakeLists.txt . # Помещаем в tmp CMakeLists.txt
 $ rm -rf tmp # Удаляем tmp
 ```
-# Настройка проекта
+#Настройка проекта
 ```ShellSession
 $ cat CMakeLists.txt # Выводим содержимое файла на экран
 $ cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install # -H. устанавливаем каталог в который сгенерируется файл, -B_build указывает директорию для собираемых файлов, -D - аналог команде set 
 $ cmake --build _build --target install # Указываем необходимые для обработки цели, запускаем сборку проекта.
 $ tree _install # Визуализируем 
 ```
-# Отправление на удаленный репозиторий
+#Отправление на удаленный репозиторий
 ```ShellSession
 $ git add CMakeLists.txt # Добавляем CMakeLists.txt под версионный контроль
 $ git commit -m"added CMakeLists.txt" # делаем коммит
