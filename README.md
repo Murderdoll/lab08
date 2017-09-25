@@ -1,5 +1,5 @@
 ## Laboratory work IV
-
+Баранов Артём ИУ8-33
 Данная лабораторная работа посвещена изучению систем автоматизации сборки проекта на примере **CMake**
 
 ```ShellSession
@@ -16,7 +16,7 @@ $ open https://cmake.org/
 ## Tutorial
 
 ```ShellSession
-$ export GITHUB_USERNAME=<имя_пользователя>
+$ export GITHUB_USERNAME=Murderdoll # Устанавливаем значение переменной окружения GITHUB_USERNAME
 ```
 
 ```ShellSession
