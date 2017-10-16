@@ -4,14 +4,14 @@
 Данная лабораторная работа посвящена изучению фреймворков для тестирования на примере **Catch**
 
 Баранов Артём ИУ8-33
-[![Build Status](https://travis-ci.org/Murderdoll/lab06.svg?branch=master)](https://travis-ci.org/Murderdoll/lab06)
+[![Build Status](https://travis-ci.org/Murderdoll/lab07.svg?branch=master)](https://travis-ci.org/Murderdoll/lab07)
 
 ```ShellSession
 $ open https://github.com/philsquared/Catch
 ```
 ## Tasks
 
-- [X] 1. Создать публичный репозиторий с названием **lab06** на сервисе **GitHub**
+- [X] 1. Создать публичный репозиторий с названием **lab07** на сервисе **GitHub**
 - [X] 2. Выполнить инструкцию учебного материала
 - [X] 3. Ознакомиться со ссылками учебного материала
 - [X] 4. Составить отчет и отправить ссылку личным сообщением в **Slack**
@@ -23,10 +23,10 @@ $ export GITHUB_USERNAME=Murderdoll
 ```
 Проводим первоначальные настройки для соединения с репозиторием шестой лабораторной работы
 ```ShellSession
-$ git clone https://github.com/${GITHUB_USERNAME}/lab05 lab06 # Клонируем репозиторий lab05 в каталог lab06
-$ cd lab06 # Переходим в каталог lab06
+$ git clone https://github.com/${GITHUB_USERNAME}/lab05 lab07 # Клонируем репозиторий lab05 в каталог lab07
+$ cd lab07 # Переходим в каталог lab07
 $ git remote remove origin # отключаемся от ветки из lab05
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06 # Переходим в ветку репозитория для шестой лабораторной
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab07 # Переходим в ветку репозитория для шестой лабораторной
 ```
 
 ```ShellSession
@@ -88,7 +88,7 @@ $ cmake --build _build --target test # Устанавливаем цели дл�
 ```
 Работа с Travis
 ```ShellSession
-$ sed -i '' 's/lab05/lab06/g' README.md # Меняем содержимое файла README.md
+$ sed -i '' 's/lab05/lab07/g' README.md # Меняем содержимое файла README.md
 $ sed -i '' 's/\(DCMAKE_INSTALL_PREFIX=_install\)/\1 -DBUILD_TESTS=ON/' .travis.yml # Меняем содержимое файла .travis.yml
 #Вносим изменения в файле .travis.yml
 $ sed -i '' '/cmake --build _build --target install/a\
@@ -115,7 +115,7 @@ $ travis enable #Включаем репозиторий в Travis
 $ mkdir artifacts #Создаем каталог artifacts
 $ screencapture -T 20 artifacts/screenshot.jpg #Делаем снимок экрана и помещаем его в каталог artifacts
 <Command>-T
-$ open https://github.com/${GITHUB_USERNAME}/lab06 #Открываем репозиторий шестой лабораторной на GitHub
+$ open https://github.com/${GITHUB_USERNAME}/lab07 #Открываем репозиторий шестой лабораторной на GitHub
 ```
 
 ## Report
