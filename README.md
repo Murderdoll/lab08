@@ -9,7 +9,7 @@
 ```ShellSession
 $ open https://github.com/philsquared/Catch
 ```
-## Tasks
+## Task s
 
 - [X] 1. Создать публичный репозиторий с названием **lab08** на сервисе **GitHub**
 - [X] 2. Выполнить инструкцию учебного материала
