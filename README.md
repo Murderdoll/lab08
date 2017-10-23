@@ -4,7 +4,7 @@
 Данная лабораторная работа посвящена изучению фреймворков для тестирования на примере **Catch**
 
 Баранов Артём ИУ8-33
-[![Build Status](https://travis-ci.org/Murderdoll/lab07.svg?branch=master)](https://travis-ci.org/Murderdoll/lab07)
+[![Build Status](https://travis-ci.org/Murderdoll/lab08.svg?branch=master)](https://travis-ci.org/Murderdoll/lab08)
 
 ```ShellSession
 $ open https://github.com/philsquared/Catch
@@ -33,10 +33,10 @@ $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab07 # Перех
 $ mkdir tests #Создаем каталог tests
 $ wget https://github.com/philsquared/Catch/releases/download/v1.9.3/catch.hpp -O tests/catch.hpp #Устанавливаем библиотеку для модульного тестирования на языке С++ catch.hpp
 # Подключаем к main.cpp catch.hpp
-$ cat > tests/main.cpp <<EOF 
+$ cat > tests/main.cpp <<EOF
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-EOF 
+EOF
 ```
 Редактируем CMakeLists.txt
 ```ShellSession
